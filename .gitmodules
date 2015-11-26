@@ -34,3 +34,6 @@
 	path = gpAux/extensions/gpfdist/ext
 	url = ssh://git@stash.eng.pivotal.io:2222/gpdb/gpfdist-ext.git
 	branch = master
+[submodule "gpAux/extensions/gpx3ext"]
+	path = gpAux/extensions/gpx3ext
+	url = git@github.com:GPDBUnite/gps3ext.git
