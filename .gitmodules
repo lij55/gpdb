@@ -37,3 +37,5 @@
 [submodule "gpAux/extensions/gpx3ext"]
 	path = gpAux/extensions/gpx3ext
 	url = git@github.com:GPDBUnite/gps3ext.git
+        branch = stable
+
