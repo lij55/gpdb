@@ -84,7 +84,7 @@ LD_LIBRARY_PATH=\$GPHOME/lib:\$PYTHONHOME/lib:/usr/sfw/lib:/usr/local/python/lib
 EOF
     else
     cat <<EOF
-LD_LIBRARY_PATH=\$GPHOME/lib:\$PYTHONHOME/lib:\$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=\$GPHOME/lib:\$LD_LIBRARY_PATH
 EOF
     fi
 fi
@@ -111,7 +111,6 @@ fi
 
 cat <<EOF
 export PYTHONPATH
-export PYTHONHOME
 EOF
 
 cat <<EOF

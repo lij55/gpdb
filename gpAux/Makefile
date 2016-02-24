@@ -531,7 +531,8 @@ dist : GPPKGINSTLOC=$(GPPKGDISTPATH)
 ifdef ENABLE_VPATH_BUILD
 dist : BUILDDIR=Release
 dist : ISCONFIG=$(BUILDDIR)/GNUmakefile
-dist : gccVersionCheck GPROOTDEP RECONFIG Release/GNUmakefile
+dist : gccVersionCheck preparepy GPROOTDEP RECONFIG Release/GNUmakefile
+
 else
 dist : gccVersionCheck GPROOTDEP RECONFIG $(ISCONFIG)
 endif
@@ -1226,7 +1227,7 @@ copylibs : thirdparty-dist copy-rsa-libs copy-nbu-libs
 	mkdir -p $(INSTLOC)/ext/python
 	@if [ ! -z "$(BLD_PYTHON)" ]; then \
 	    echo "Copying python, $(BLD_PYTHON_FILESET), from $(BLD_PYTHON) into $(INSTLOC)/ext/python..."; \
-	    (cd $(BLD_PYTHON) && $(TAR) cf - $(BLD_PYTHON_FILESET)) | (cd $(INSTLOC)/ext/python/ && $(TAR) xpf -); \
+	    (cd $(BLD_PYTHON) && cp -rf envs  init.sh  LICENSE.txt  pkgs  $(INSTLOC)/ext/python/ ); \
 		echo "...DONE"; \
 	else \
 	    echo "INFO: Python not found on this platform, $(BLD_ARCH), not copying it into the GPDB package."; \
@@ -1535,3 +1536,6 @@ endif
 unittest-check:
 	$(MAKE) -C ../src/backend unittest-check
 	$(MAKE) -C ../src/bin unittest-check
+
+preparepy:
+	@if [ ! -d $(BLD_TOP)/ext/$(BLD_ARCH)/conda/.index ]; then	$(BLD_TOP)/ext/$(BLD_ARCH)/conda/init.sh; fi
