@@ -531,7 +531,7 @@ dist : GPPKGINSTLOC=$(GPPKGDISTPATH)
 ifdef ENABLE_VPATH_BUILD
 dist : BUILDDIR=Release
 dist : ISCONFIG=$(BUILDDIR)/GNUmakefile
-dist : gccVersionCheck preparepy GPROOTDEP RECONFIG Release/GNUmakefile
+dist : gccVersionCheck GPROOTDEP RECONFIG Release/GNUmakefile
 
 else
 dist : gccVersionCheck GPROOTDEP RECONFIG $(ISCONFIG)
@@ -862,6 +862,7 @@ endif
 ifneq "$($(BLD_ARCH)_PYTHON)" ""
 	mkdir -p $(LOADERSINSTLOC_EXT)/python
 	(cd $($(BLD_ARCH)_PYTHON) && $(TAR) cf - $(BLD_PYTHON_FILESET)) | (cd $(LOADERSINSTLOC_EXT)/python/ && $(TAR) xpf -)$(check_pipe_for_errors)
+	(cd $(BLD_PYTHON) && ./init.sh )
 endif
 	mkdir -p $(LOADERSINSTLOC_LIB)
 ifneq "$(LOADERS_FILESET_LIB)" ""
@@ -1538,5 +1539,3 @@ unittest-check:
 	$(MAKE) -C ../src/backend unittest-check
 	$(MAKE) -C ../src/bin unittest-check
 
-preparepy:
-	@if [ ! -d $(BLD_TOP)/ext/$(BLD_ARCH)/conda/.index ]; then	$(BLD_TOP)/ext/$(BLD_ARCH)/conda/init.sh; fi
