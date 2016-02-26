@@ -1232,6 +1232,7 @@ ifneq "$(findstring rhel,$(BLD_ARCH))" ""
 	@if [ ! -z "$(BLD_PYTHON)" ]; then \
 	    echo "Copying python, $(BLD_PYTHON_FILESET), from $(BLD_PYTHON) into $(INSTLOC)/ext/python..."; \
 	    (cd $(BLD_PYTHON) && cp -rf envs  init.sh  LICENSE.txt  pkgs  $(INSTLOC)/ext/python/ ); \
+	    ( $(INSTLOC)/ext/python/init.sh ); \
 		echo "...DONE"; \
 	else \
 	    echo "INFO: Python not found on this platform, $(BLD_ARCH), not copying it into the GPDB package."; \
