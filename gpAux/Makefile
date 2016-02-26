@@ -1388,6 +1388,9 @@ bouncer:
 	@cd $(BUILDDIR)/src/test/regress && $(MAKE) testbouncer
 
 installcheck-good :
+ifneq "$(findstring rhel,$(BLD_ARCH))" ""
+	($(INSTLOC)/ext/python/init.sh);
+endif
 	@if [ ! -f $(ISCONFIG) ]; then echo "not configured, cannot check"; exit 1; fi
 	@cd $(BUILDDIR)/src/test/regress && $(MAKE) installcheck-good
 	@#cd $(BUILDDIR)/src/test/regress && $(MAKE) testbouncer
