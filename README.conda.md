@@ -17,11 +17,11 @@ We use miniconda here.
 	./Miniconda-latest-Linux-x86_64.sh
 
 Then follow the instructions to complete the installation of Anaconda.
-Assume miniconda is installed to "/home/gpadmin/miniconda". 
+Assume miniconda is installed to "/PATH/TO/CONDAHOME".
 
 IMPORTANT: Add this path to head of PATH environment, so that Anaconda become the default Python
 
-	export PATH=/home/gpadmin/miniconda/bin:$PATH
+	export PATH=/PATH/TO/CONDAHOME/bin:$PATH
 
 ## Install related tools
 Following instructions are for Centos/RHEL/Fedora as example. 
@@ -40,6 +40,7 @@ The python-devel is not required here because it is provided by Anaconda.
 Make sure "--with-python" parameter exists. Because the default Python is the Anaconda Python, It's done.
 
 ## Test link path of Python
+In following example, Anaconda is installed to /home/gpadmin/miniconda.
     ldd greenplumdb/lib/postgresql/plpython.so
 	...
 	libpython2.7.so.1.0 => /home/gpadmin/miniconda/lib/libpython2.7.so.1.0 (0x00007f1f3c40c000)
@@ -54,7 +55,7 @@ If you run a multinode cluster, make sure the install paths of Anaconda (and
 GPDB) are the same on every host. gpssh can help to install Anaconda package on
 each segment:
 
-	gpssh -f hostlistfile /home/gpadmin/miniconda/bin/conda install numpy
+	gpssh -f hostlistfile /PATH/TO/CONDAHOME/bin/conda install numpy
 
 ## Init GPDB cluster
 
