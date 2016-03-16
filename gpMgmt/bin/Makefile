@@ -240,7 +240,7 @@ check-regress:
 	@PYTHONPATH=$(SRC):$(SRC)/ext:$(PYTHONPATH) \
 	gppylib/gpunit discover --verbose -s gppylib -p "test_regress*.py" 2> $(SRC)/../gpMgmt_testregress_results.log 1> $(SRC)/../gpMgmt_testregress_output.log
 
-check: $(MOCK_BIN) unittest2
+check:
 	@echo "Running unit tests..."
 	@PYTHONPATH=$(SERVER_SRC):$(SERVER_SBIN):$(SRC)/ext:$(PYTHONPATH):$(PYTHONSRC_INSTALL_PYTHON_PATH):$(SBIN_DIR):$(LIB_DIR):$(PYLIB_DIR)/mock-1.0.1 \
 	gppylib/gpunit discover --verbose -s $(SRC)/gppylib -p "test_unit*.py" 2> $(SRC)/../gpMgmt_testunit_results.log 1> $(SRC)/../gpMgmt_testunit_output.log
