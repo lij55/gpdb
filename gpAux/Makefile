@@ -532,7 +532,6 @@ ifdef ENABLE_VPATH_BUILD
 dist : BUILDDIR=Release
 dist : ISCONFIG=$(BUILDDIR)/GNUmakefile
 dist : gccVersionCheck GPROOTDEP RECONFIG Release/GNUmakefile
-
 else
 dist : gccVersionCheck GPROOTDEP RECONFIG $(ISCONFIG)
 endif
