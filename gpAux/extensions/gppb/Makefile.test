@@ -1,0 +1,13 @@
+# Options
+
+# Flags
+SHLIB_LINK = -lstdc++ 
+PG_CPPFLAGS = -O2 -g -std=c++11 -fPIC -I$(libpq_srcdir) -Isrc  -I$(libpq_srcdir)/postgresql/server/utils
+
+# Targets
+MODULE_big = libpb
+OBJS = src/pb.o
+
+# Launch
+PGXS := $(shell pg_config --pgxs)
+include $(PGXS)
