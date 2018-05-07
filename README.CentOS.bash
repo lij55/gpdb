@@ -21,8 +21,10 @@ sudo yum install -y \
     python-pip \
     readline-devel \
     xerces-c-devel \
-    zlib-devel
+    zlib-devel \
+    openssl-devel
 
+sudo yum groupinstall -y "development tools"
 sudo pip install conan
 sudo pip install -r python-dependencies.txt
 sudo pip install -r python-developer-dependencies.txt
