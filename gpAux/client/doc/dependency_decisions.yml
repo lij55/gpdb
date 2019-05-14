@@ -1,0 +1,76 @@
+---
+- - :add_package
+  - zlib
+  - 1.2.11
+  - &1
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2019-05-14 09:06:17.930573000 Z
+- - :license
+  - zlib
+  - zlib
+  - *1
+- - :approve
+  - zlib
+  - *1
+- - :add_package
+  - libapr
+  - 1.6.5
+  - &2
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2019-05-14 09:06:18.317282000 Z
+- - :license
+  - libapr
+  - Apache 2.0
+  - *2
+- - :approve
+  - libapr
+  - *2
+- - :add_package
+  - libevent
+  - 2.1.8
+  - &3
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2019-05-14 09:06:18.662063000 Z
+- - :license
+  - libevent
+  - BSD
+  - *3
+- - :approve
+  - libevent
+  - *3
+- - :add_package
+  - openssl
+  - 1.0.2
+  - &4
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2019-05-14 09:06:19.010160000 Z
+- - :license
+  - openssl
+  - Apache 2.0
+  - *4
+- - :approve
+  - openssl
+  - *4
+- - :add_package
+  - PyGreSQL
+  - '4.0'
+  - &5
+    :who: 
+    :why: 
+    :versions: []
+    :when: 2019-05-14 09:15:00.666521000 Z
+- - :license
+  - PyGreSQL
+  - BSD
+  - *5
+- - :approve
+  - PyGreSQL
+  - *5
